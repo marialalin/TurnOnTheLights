@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+
+}
+    
+#background-image {
+    height: 1050px;
+    background: url(/assets/images/salon.jpg) no-repeat;
+    background-size: cover;
+    }
+
+header p {
+    text-align: center;
+    font-size: 70px;
+    padding-top: 10px;
+    }
+
+.panels {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    height: 1000px;
+    
+}
+
+.game-panel {
+    background-color: rgba(245, 246, 224);
+    margin-left: 10%;
+    width: 60%;
+    height: 70%;
+    border-radius: 1%;
+    position: relative;
+    
+}
+
+.bill-panel {
+    background-color: rgba(245, 246, 224, 0.8);
+    margin-right: 10%;
+    width: 15%;
+    height: 70%;
+    border-radius: 2%;
+    display: flex;
+    flex-direction: row;
+    align-content:center;
+    justify-content: center;
+}
+
+.counter-panel {
+    background-color: whitesmoke ;
+    width: 70%;
+    height: 10%;
+    border-radius: 2%;
+    margin-top: 100px;
+    border: 15px solid rgb(144, 12, 63 );
+    border-radius: 10%;
+    border-style: groove;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: 5px;
+
+}
+
+
+
+.bulb {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+}
+
+.switcher {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    
+}
+
+.bulb.one {
+    top: 120px;
+    left: 80px;
+}
+
+.switcher.one {
+    top: 390px;
+    left: 650px;
+}
+
+
+
+.rotation {
+    transform: scaleX(-1);
+    transform: scaleY(-1); 
+}
+
+
+/* PARA QUE APAREZAN E DESAPAREZAN AS CLASES*/
+
+#bulb-container {
+    position: relative;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.oculto {
+    visibility: hidden;
+}
