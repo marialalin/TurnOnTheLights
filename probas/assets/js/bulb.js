@@ -1,35 +1,46 @@
 class Bulb {
   constructor(bulbElement, switchElement) {
     this.bulbElement = bulbElement;
-    this.switchElement = switchElement;
+    this.switchElement = switchElement
     this.on = false;
 
-    this.setListeners();
+    this.setListener()
   }
+   
+  
 
-  on() {
+  turnOn() {
     this.on = true;
-    this.bulbElement.classList.remove("off");
-    this.bulbElement.classList.add("on");
+    this.bulbElement.classList.remove("off")
+    this.bulbElement.classList.add("on")
+    this.switchElement.classList.remove("off")
+    this.switchElement.classList.add("on")
+    
   }
 
-  off() {
+  setListener() {
+    this.switchElement.addEventListener("click", () => {
+      this.toggle()
+    })
+  }
+
+  turnOff() {
     this.on = false;
-    this.bulbElement.classList.add("off");
-    this.bulbElement.classList.remove("on");
+    this.bulbElement.classList.add("off")
+    this.bulbElement.classList.remove("on")
+    this.switchElement.classList.remove("on")
+    const clickOn = document.getElementById("switch-click")
+    clickOn.play()
+
   }
 
   toggle() {
     if (this.on) {
-      this.off();
+      this.turnOff()
     } else {
-      this.on();
+      this.turnOn();
     }
   }
 
-  setListeners() {
-    this.switchElement.addEventListener("click", () => {
-      this.toggle();
-    });
-  }
+  
 }

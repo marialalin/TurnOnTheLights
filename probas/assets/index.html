@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="/assets/styles.css">
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Codystar&family=Lacquer&family=Monoton&family=Orbitron:wght@400;500&family=Sedgwick+Ave+Display&display=swap');
-
     </style>
+    <audio id="switch-click" src="/assets/sounds/Light-Switch.mp3"></audio>
+    <audio id="breaking-bulbs" src="/assets/sounds/light-bulb-breaking.mp3"></audio>
 </head>
 
 
@@ -23,35 +24,59 @@
        <div class="panels">
             
         <div class="game-panel">
-                <div id="bulb-container">
-                    <img class="bulb one visible" src="/assets/images/bulb1-yellow.png" alt="bulb-icon-off">
-                    <img class="bulb one oculto" src="/assets/images/bulb1-grey.png" alt="bulb-icon-on">
-                </div>
-                <div id="bulb-container2">
-                    <img class="bulb two visible" src="/assets/images/bulb1-yellow.png" alt="bulb-icon-off">
-                    <img class="bulb two oculto" src="/assets/images/bulb1-grey.png" alt="bulb-icon-on">
-                </div>
-                <div>
-                    <img class="switcher one" src="/assets/images/switcher.png" alt="">
-                    <img class="switcher two" src="/assets/images/switcher.png" alt="">
-                </div>
+            <div class="bulb-container index-1 off">
+                <img class="bulb bulb-on" src="/assets/images/bulb1-yellow.png" alt="">
+                <img class="bulb bulb-off" src="/assets/images/bulb1-grey.png" alt="">
             </div>
 
-            <div class="bill-panel">
-                <div class="kw">
-                    <img src="/assets/images/contador.png" alt="">
-                </div>
-                <div class="counter-panel">
-                    <div id="counter">
-                        <span class="total">135€</span>
-                    </div>
+            <div class="switch-container index-1">
+                <img class="switch" src="/assets/images/switcher.png" alt="">
+            </div>
+
+            <div class="bulb-container index-2 off">
+                <img class="bulb bulb-on" src="/assets/images/bulb1-yellow.png" alt="">
+                <img class="bulb bulb-off" src="/assets/images/bulb1-grey.png" alt="">
+            </div>
+        
+            <div class="switch-container index-2">
+                <img class="switch rotate" src="/assets/images/switcher.png" alt="">
+            </div>
+
+            <div class="bulb-container index-3 off">
+                <img class="bulb bulb-on" src="/assets/images/bulb1-yellow.png" alt="">
+                <img class="bulb bulb-off" src="/assets/images/bulb1-grey.png" alt="">
+            </div>
+        
+            <div class="switch-container index-3">
+                <img class="switch" src="/assets/images/switcher.png" alt="">
+            </div>
+
+            <div class="bulb-container index-4 off">
+                <img class="bulb bulb-on" src="/assets/images/bulb1-yellow.png" alt="">
+                <img class="bulb bulb-off" src="/assets/images/bulb1-grey.png" alt="">
+            </div>
+        
+            <div class="switch-container index-4">
+                <img class="switch rotate" src="/assets/images/switcher.png" alt="">
+            </div>
+        </div>
+
+        <div class="bill-panel">
+            <div class="kw">
+                <img src="/assets/images/contador.png" alt="">
+            </div>
+            <div class="counter-panel">
+                <div id="counter"> 0 €
                 </div>
             </div>
+        </div>
 
         </div>
         
     </div>
 </body>
 
+<script src="/assets/js/bulb.js"></script>
+<script src="/assets/js/game.js"></script>
 <script src="/assets/js/index.js"></script>
 </html>
