@@ -16,6 +16,7 @@ class Bulb {
     this.switchElement.classList.remove("off")
     this.switchElement.classList.add("on")
     
+    
   }
 
   setListener() {
