@@ -1,13 +1,18 @@
 class Game {
   constructor(bulbElements, switchElements, counter, level = 2) {
     
-
+    this.bulbElements = bulbElements
     this.switchElements = switchElements
     this.counter = counter
+    this.level = level
     this.intervalId = null
     this.tick = 0
     this.total = 0
     this.maxTotal = 10
+
+    this.arrayBulbs = []
+    this.arrayBulbs.push(new Bulb(bulbElements, switchElements))
+    this.arrayBulbs.push(new Bulb(bulbElements, switchElements))
    
 
   }
@@ -24,9 +29,9 @@ class Game {
         this.turnOnRandomBulb();
       }
 
-      if (this.tick > 30) {
+      if (this.tick > 30000) {
         this.tick = 0;
-        this.addNewBulb(); // falta isto
+        this.upLevel(); 
       }
     }, 500);
   }
@@ -45,10 +50,11 @@ class Game {
 
 
 
-  addNewBulb() {
+  upLevel() {
     // TODO: add new bulb to this.bulbs and to DOM
     
-  
+    this.arrayBulbs.push(new Bulb(this.bulbElements, this.switchElements))
+    this.arrayBulbs.push(new Bulb(this.bulbElements, this.switchElements))
 
             
   }

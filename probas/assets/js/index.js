@@ -1,30 +1,34 @@
-const bulbElement = [
-    { name: "bulb", level: "level1", img: "bulb1-grey.png", state: "bulb-off" }
-    { name: "bulb", level: "level1", img: "bulb1-yellow.png", state: "bulb-on"}
+const bulbElements = [
+    { name: "bulb", img: "bulb1-grey.png", state: "bulb-off", level: "level1" , alt: "bulb-icon-off"} ,
+    { name: "bulb", img: "bulb1-yellow.png", state: "bulb-on" , alt: "bulb-icon-on"} 
 ]
 
 const switchElement = [
-    { name: "switch", level: "level1", img: "switcher.png" }
+    { name: "switch", img: "switcher.png", level: "level1" }
 
 ] 
 
 
 const game = new Game(
-    bulbElement,
+    bulbElements,
     switchElement,
-    document.getElementById("counter")
+    document.getElementById("counter"),
 );
 
     document.addEventListener("load", (event) => {
-        let html = ""
-        game.bulbElement.forEach((pic) => {
+        let html = `<div class="bulb-container ${bulbElements.level}" >`
+        game.bulbElements.forEach((bulbElement) => {
             html += `
-            <div id="bulb-container">
-            <img class="bulb one visible" src="/assets/images/bulb1-yellow.png" alt="bulb-icon-off">
+            <img class="${bulbElement.name} ${bulbElement.state}" src= "${bulbElement.img}" alt="${bulbElement.alt}">
             `
         })
+        
+        html += `</div>`;
+        html += `<div class="switch-container $.level}" >`;
     })
-    document.querySelector(".game-panel").createElement("div")
+
+
+    document.querySelector(".game-panel").textContent = 
     
 
 
@@ -32,7 +36,3 @@ game.start()
 game.checkCounter()
 
 
-<div id="bulb-container">
-                    <img class="bulb one visible" src="/assets/images/bulb1-yellow.png" alt="bulb-icon-off">
-                    <img class="bulb one oculto" src="/assets/images/bulb1-grey.png" alt="bulb-icon-on">
-                </div>
