@@ -4,7 +4,7 @@ const bulbElements = [
 ]
 
 const switchElement = [
-    { name: "switch rotate", img:"images/switcher.png" }
+    { name: "switch", img:"images/switcher.png" }
 
 ] 
 
@@ -18,11 +18,10 @@ const game = new Game(
 document.addEventListener("DOMContentLoaded", (event) => {
     let html = ''
     game.arrayBulbs.forEach((bulbAndSwitch, index) => {
-        let left = (index + 1) * 300 - (!index ? 0 : 50);
         html +=  `<div class="bulb-container index-${index + 1} off" >`
         bulbAndSwitch.bulbElement.forEach((bulbElement) => {
             html += `
-            <img class="${bulbElement.name} index-${index + 1} ${bulbElement.state}" src= "${bulbElement.img}" alt="${bulbElement.alt}" style="left: ${left}px">
+            <img class="${bulbElement.name} index-${index + 1} ${bulbElement.state}" src= "${bulbElement.img}" alt="${bulbElement.alt}">
             `
         })    
         html += `</div>`

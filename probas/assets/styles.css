@@ -142,14 +142,16 @@ header {
     transform: scaleY(-1);
 }
 
-/*.bulb-container.index .bulb {
+.bulb-container.index-1 .bulb {
     position: absolute;
     top: 120px;
-}*/
+    left: 300px;
+}
 
-.bulb-container .bulb {
+.bulb-container.index-2 .bulb {
    position: absolute;
     top: 120px;
+    left: 550px;
 }
 
 .bulb-container.index-3 .bulb {
