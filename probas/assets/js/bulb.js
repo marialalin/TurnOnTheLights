@@ -16,6 +16,7 @@ class Bulb {
     bulbContainer.classList.add("on")
     switchContainer.classList.remove("off")
     switchContainer.classList.add("on")
+    switchContainer.querySelector("img").classList.remove("rotate")
     const clickOff = document.getElementById("clickOff")
     clickOff.play()
     
@@ -28,6 +29,8 @@ class Bulb {
     bulbContainer.classList.add("off")
     bulbContainer.classList.remove("on")
     switchContainer.classList.remove("on")
+    switchContainer.classList.add("off")
+    switchContainer.querySelector("img").classList.add("rotate")
     const clickOn = document.getElementById("switch-click")
     clickOn.play()
 
@@ -36,8 +39,8 @@ class Bulb {
   setListener() {
     document.querySelectorAll('.switch-container').forEach((s) => {
       s.addEventListener('click', (event) => {
-        const arrayClass = event.target.parentElement.className.split(' ');
-        this.toggle(arrayClass[arrayClass.length - 1])
+        const arrayClass = event.currentTarget.className.split(' ');
+        this.toggle(arrayClass[1])
       })
     })
    

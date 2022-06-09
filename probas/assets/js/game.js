@@ -15,12 +15,10 @@ class Game {
     this.arrayBulbs.push(new Bulb(bulbElements, switchElements))
     
    
-
+    
   }
 
-  /*start() {
-
-    this.turnOnRandomBulb()
+  start() {
 
     this.intervalId = setInterval(() => {
       this.incCounter();
@@ -31,11 +29,11 @@ class Game {
       }
 
       if (this.tick > 30000) {
-        this.tick = 0;
+        this.tick = 30;
         this.upLevel(); 
       }
     }, 500);
-  }*/
+  }
 
   /*gameOver() {
     console.log("gameOverrr")
@@ -52,8 +50,6 @@ class Game {
 
 
   upLevel() {
-    // TODO: add new bulb to this.bulbs and to DOM
-    
     this.arrayBulbs.push(new Bulb(this.bulbElements, this.switchElements))
     this.arrayBulbs.push(new Bulb(this.bulbElements, this.switchElements))
 
@@ -71,7 +67,7 @@ class Game {
       if (bulb.on) {
         this.total += 1
   
-        this.counter.innerText = `${this.total}€`
+        this.counter.innerText = `${this.total}`
       }
       
     })

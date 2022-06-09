@@ -92,7 +92,7 @@ header {
 
 
 
-.rotation {
+.switch-container .rotate {
     transform: scaleX(-1);
     transform: scaleY(-1); 
 }
@@ -132,26 +132,24 @@ header {
 
 
 
-.switch-container.on .switch {
+/*.switch-container.on .switch {
+    transform: scaleX(-1);
+    transform: scaleY(-1);
+}*/
+
+.switch-container .rotate {
     transform: scaleX(-1);
     transform: scaleY(-1);
 }
 
-.rotate {
-    transform: scaleX(-1);
-    transform: scaleY(-1);
-}
-
-.bulb-container.index-1 .bulb {
+/*.bulb-container.index .bulb {
     position: absolute;
     top: 120px;
-    left: 50px;
-}
+}*/
 
-.bulb-container.index-2 .bulb {
+.bulb-container .bulb {
    position: absolute;
     top: 120px;
-    left: 300px;
 }
 
 .bulb-container.index-3 .bulb {
@@ -169,7 +167,7 @@ header {
  .switch-container.index-2 .switch {
     position: absolute;
     top: 420px;
-    left: 110px;
+    left: 360px;
  }
 
  .switch-container.index-3 .switch {
@@ -187,5 +185,9 @@ header {
  .switch-container.index-1 .switch {
     position: absolute;
     top: 420px;
-    left: 860px;
+    left: 610px;
+ }
+
+ #counter::after {
+    content:"€"
  }
