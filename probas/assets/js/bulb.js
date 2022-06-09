@@ -4,44 +4,56 @@ class Bulb {
     this.switchElement = switchElement
     this.on = false;
 
-    this.setListener()
   }
    
   
 
-  turnOn() {
+  turnOn(index) {
     this.on = true;
-    this.bulbElement.classList.remove("off")
-    this.bulbElement.classList.add("on")
-    this.switchElement.classList.remove("off")
-    this.switchElement.classList.add("on")
-    
+    const bulbContainer = document.querySelector(`.bulb-container.${index}`)
+    const switchContainer = document.querySelector(`.switch-container.${index}`)
+    bulbContainer.classList.remove("off")
+    bulbContainer.classList.add("on")
+    switchContainer.classList.remove("off")
+    switchContainer.classList.add("on")
+    const clickOff = document.getElementById("clickOff")
+    clickOff.play()
     
   }
 
-  setListener() {
-    this.switchElement.addEventListener("click", () => {
-      this.toggle()
-    })
-  }
-
-  turnOff() {
+  turnOff(index) {
     this.on = false;
-    this.bulbElement.classList.add("off")
-    this.bulbElement.classList.remove("on")
-    this.switchElement.classList.remove("on")
+    const bulbContainer = document.querySelector(`.bulb-container.${index}`)
+    const switchContainer = document.querySelector(`.switch-container.${index}`)
+    bulbContainer.classList.add("off")
+    bulbContainer.classList.remove("on")
+    switchContainer.classList.remove("on")
     const clickOn = document.getElementById("switch-click")
     clickOn.play()
 
   }
 
-  toggle() {
+  setListener() {
+    document.querySelectorAll('.switch-container').forEach((s) => {
+      s.addEventListener('click', (event) => {
+        const arrayClass = event.target.parentElement.className.split(' ');
+        this.toggle(arrayClass[arrayClass.length - 1])
+      })
+    })
+   
+  }
+
+
+  toggle(index) {
     if (this.on) {
-      this.turnOff()
+      this.turnOff(index)
     } else {
-      this.turnOn();
+      this.turnOn(index);
     }
   }
 
   
+
 }
+
+

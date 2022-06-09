@@ -112,6 +112,7 @@ header {
     
 }
 
+/*añadir off y on a bulb container para que cambie de clase*/
 
 .bulb-container.on .bulb.bulb-on {
     display: block;
@@ -128,6 +129,8 @@ header {
 .bulb-container.off .bulb.bulb-on {
     display: none;
 }
+
+
 
 .switch-container.on .switch {
     transform: scaleX(-1);

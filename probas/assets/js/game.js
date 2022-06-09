@@ -13,11 +13,12 @@ class Game {
     this.arrayBulbs = []
     this.arrayBulbs.push(new Bulb(bulbElements, switchElements))
     this.arrayBulbs.push(new Bulb(bulbElements, switchElements))
+    
    
 
   }
 
-  start() {
+  /*start() {
 
     this.turnOnRandomBulb()
 
@@ -34,9 +35,9 @@ class Game {
         this.upLevel(); 
       }
     }, 500);
-  }
+  }*/
 
-  gameOver() {
+  /*gameOver() {
     console.log("gameOverrr")
     clearInterval(this.intervalId)
     this.intervalId = null
@@ -46,7 +47,7 @@ class Game {
         this.turnOff()
       }
     })
-  }
+  }*/
 
 
 
@@ -59,7 +60,7 @@ class Game {
             
   }
 
-  turnOnRandomBulb() {
+  /*turnOnRandomBulb() {
     const indexBulb = Math.floor(Math.random() * this.bulbs.length)
     this.bulbs[indexBulb].turnOn()
     
@@ -81,7 +82,7 @@ class Game {
        this.gameOver()
        console.log("eh")
      }
-  }
+  }*/
 }
 
 

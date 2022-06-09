@@ -1,10 +1,10 @@
 const bulbElements = [
-    { name: "bulb", img: "bulb1-grey.png", state: "bulb-off", level: "level1" , alt: "bulb-icon-off"} ,
-    { name: "bulb", img: "bulb1-yellow.png", state: "bulb-on" , alt: "bulb-icon-on"} 
+    { name: "bulb", img: "images/bulb1-grey.png", state: "bulb-off", alt: "bulb-icon-off"} ,
+    { name: "bulb", img: "images/bulb1-yellow.png", state: "bulb-on" , alt: "bulb-icon-on"} 
 ]
 
 const switchElement = [
-    { name: "switch", img: "switcher.png", level: "level1" }
+    { name: "switch", img:"images/switcher.png" }
 
 ] 
 
@@ -15,24 +15,38 @@ const game = new Game(
     document.getElementById("counter"),
 );
 
-    document.addEventListener("load", (event) => {
-        let html = `<div class="bulb-container ${bulbElements.level}" >`
-        game.bulbElements.forEach((bulbElement) => {
+document.addEventListener("DOMContentLoaded", (event) => {
+    let html = ''
+    game.arrayBulbs.forEach((bulbAndSwitch, index) => {
+        html +=  `<div class="bulb-container index-${index + 1}" >`
+        bulbAndSwitch.bulbElement.forEach((bulbElement) => {
             html += `
-            <img class="${bulbElement.name} ${bulbElement.state}" src= "${bulbElement.img}" alt="${bulbElement.alt}">
+            <img class="${bulbElement.name} index-${index + 1} ${bulbElement.state}" src= "${bulbElement.img}" alt="${bulbElement.alt}">
+            `
+        })    
+        html += `</div>`
+
+        html += `<div class="switch-container index-${index + 1}">`
+        bulbAndSwitch.switchElement.forEach((switchElement) => {
+            html += `<img class="${switchElement.name}" src="${switchElement.img}" >
             `
         })
-        
-        html += `</div>`;
-        html += `<div class="switch-container $.level}" >`;
+        html += `</div>`
+
+        document.querySelector(".game-panel").innerHTML = html   
+
+        bulbAndSwitch.setListener()
     })
 
+    
+})
 
-    document.querySelector(".game-panel").textContent = 
+
     
 
 
-game.start()
-game.checkCounter()
+
+//game.start()
+//game.checkCounter()
 
 
