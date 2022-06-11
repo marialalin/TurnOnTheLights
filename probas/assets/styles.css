@@ -107,11 +107,13 @@ header {
 
 
 .bulb {
+    position: absolute;
     width: 200px;
     height: 200px;
 }
 
 .switch {
+    position: absolute;
     width: 90px;
     height: 90px;
     
@@ -125,4 +127,26 @@ header {
 
  #counter::after {
     content:"€"
+ }
+
+ .bulb-1 {
+    top: 15px;
+    left: 15px;
+ }
+
+ .bulb-2 {
+    top: 15px;
+    left: 265px;
+ }
+
+
+ .switch-1 {
+    bottom: 15px;
+    left: 15px; 
+ }
+
+ 
+ .switch-2 {
+    bottom: 15px;
+    left: 265px; 
  }

@@ -3,7 +3,9 @@ const BULB_IMAGE_OFF = "/assets/images/bulb1-grey.png"
 const SWITCH_IMAGE = "/assets/images/switcher.png"
 
 class Bulb {
-  constructor() {
+  constructor(bulbId, switchId ) {
+    this.bulbId = bulbId
+    this.switchId = switchId
     this.bulbElement = this.createBulbHtml()
     this.switchElement = this.createSwitchHtml()
     this.on = false
@@ -13,6 +15,7 @@ class Bulb {
   createBulbHtml() {
     const bulb = document.createElement("img")
     bulb.classList.add("bulb") 
+    bulb.classList.add(`bulb-${this.bulbId}`)
     bulb.src = BULB_IMAGE_OFF
     return bulb
 
@@ -21,6 +24,7 @@ class Bulb {
   createSwitchHtml() {
     const $switch = document.createElement("img")
     $switch.classList.add("switch") 
+    $switch.classList.add(`switch-${this.switchId}`)
     $switch.src = SWITCH_IMAGE
     return $switch
   }
