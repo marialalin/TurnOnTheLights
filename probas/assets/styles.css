@@ -9,8 +9,10 @@
 
 #background-image {
     height: 940px;
-    background: url(/assets/images/game-background.png) no-repeat;
-    background-size: cover;
+    /*background: url(/assets/images/game-background.png) no-repeat;
+    background-size: cover;*/
+    background-color: #6b2dcf;
+    position: relative;
     }
 
 header {
@@ -44,6 +46,28 @@ header {
     
 }
 
+
+.game-over {
+    position: absolute;
+    width: 1200px;
+    height: 700px;
+    left: 350px;
+    margin-top: 50px;
+    background: url(/assets/images/game-over.png) no-repeat;
+    background-size: cover;
+    
+}
+
+.game-start {
+    position: absolute;
+    width: 1200px;
+    height: 700px;
+    left: 350px;
+    margin-top: 50px;
+    background-color: #e8e1e5;
+    background-size: cover;
+}
+
 .game-panel {
     background-color: rgba(245, 246, 224, 0.9);
     margin-left: 170px;
@@ -55,7 +79,7 @@ header {
     
 }
 
-.visibility {
+.hidden {
     visibility: hidden;
 }
 
@@ -130,23 +154,53 @@ header {
  }
 
  .bulb-1 {
-    top: 15px;
-    left: 15px;
+    top: 100px;
+    left: 25px;
  }
 
  .bulb-2 {
-    top: 15px;
-    left: 265px;
+    top: 100px;
+    left: 225px;
+ }
+
+ .bulb-3 {
+    top: 100px;
+    left: 425px;
+ }
+
+ .bulb-4 {
+    top: 100px;
+    left: 625px;
+ }
+
+ .bulb-5 {
+    top: 100px;
+    left: 825px;
  }
 
 
  .switch-1 {
-    bottom: 15px;
-    left: 15px; 
+    bottom: 150px;
+    left: 85px; 
  }
 
- 
  .switch-2 {
-    bottom: 15px;
-    left: 265px; 
+    bottom: 150px;
+    left: 285px; 
  }
+
+ .switch-3 {
+    bottom: 150px;
+    left: 485px; 
+ }
+
+ .switch-4 {
+    bottom: 150px;
+    left: 685px; 
+ }
+
+ .switch-5 {
+    bottom: 150px;
+    left: 885px; 
+ }
+

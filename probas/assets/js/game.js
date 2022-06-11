@@ -6,10 +6,13 @@ class Game {
     this.tick = 0;
     this.tock = 0;
     this.total = 0;
-    this.maxTotal = 100;
+    this.maxTotal = 50;
 
-    this.bulbsIds = [1, 2, 3, 4, 5, 6] // random
-    this.switchsIds = [1, 2, 3, 4, 5, 6]
+    this.bulbsIds = [1, 2, 3, 4, 5] 
+    this.shuffledBulbsId = this.bulbsIds.sort(() => Math.random()-0.5)
+    
+    this.switchsIds = [1, 2, 3, 4, 5]
+    this.shuffledSwitchsIds= this.switchsIds.sort(() => Math.random()-0.5)
 
     this.bulbs = [];
     
@@ -19,7 +22,7 @@ class Game {
 
   }
 
-
+ 
 
   createBulbs() {
     this.bulbsContainer.innerHTML = "";
@@ -29,33 +32,36 @@ class Game {
     });
   }
 
+  
+  addNewBulb() {
+    if (this.bulbsIds.length > 0) {
+      const bulbId = this.shuffledBulbsId.pop()
+      const switchId = this.shuffledSwitchsIds.pop()
+      this.bulbs.push(new Bulb(bulbId, switchId))
+      this.createBulbs()
+    } 
+   
+  }
+
   start() {
     this.intervalId = setInterval(() => {
       this.incCounter();
       this.tick++;
       this.tock++;
 
-      if (this.tick > Math.random() * 3 + 5) {
+      if (this.tick > Math.random() * 1 + 3) {
         this.turnOnRandomBulb();
         this.tick = 0;
       }
 
-      if (this.tock >= 20) {
+      if (this.tock >= 40) {
         this.addNewBulb()
         this.tock = 0;
       }
-    }, 500);
+    }, 300);
   }
 
-  addNewBulb() {
-    if (this.bulbsIds.length > 0) {
-      const bulbId = this.bulbsIds.pop()
-      const switchId = this.switchsIds.pop()
-      this.bulbs.push(new Bulb(bulbId, switchId))
-      this.createBulbs()
-    } 
-   
-  }
+
 
   gameOver() {
     clearInterval(this.intervalId);
@@ -67,15 +73,18 @@ class Game {
       }
     });
     setTimeout(() => {
-      document.querySelector(".game-panel").classList.add("visibility");
-      document.querySelector(".bill-panel").classList.add("visibility");
+      document.querySelector(".game-panel").classList.add("hidden")
+      document.querySelector(".bill-panel").classList.add("hidden")
+      document.getElementById("game-over").classList.add("game-over")
     }, 1000);
   }
+
 
   turnOnRandomBulb() {
     const randomBulb = Math.floor(Math.random() * this.bulbs.length);
     this.bulbs[randomBulb].turnOn();
   }
+
 
   incCounter() {
     this.bulbs.forEach((bulb) => {
@@ -88,12 +97,13 @@ class Game {
     });
   }
 
+
   checkCounter() {
     if (this.total >= this.maxTotal) {
       this.gameOver();
-    } else if (this.total >= 8) {
+    } else if (this.total >= 180) {
       this.counter.classList.add("red-background");
-    } else if (this.total >= 5) {
+    } else if (this.total >= 150) {
       this.counter.classList.add("yellow-background");
     }
   }
