@@ -6,7 +6,7 @@ class Game {
     this.tick = 0
     this.tock = 0
     this.total = 0
-    this.maxTotal = 20
+    this.maxTotal = 10
 
     this.bulbs = [new Bulb(), new Bulb()]
     this.createBulbs() 
@@ -21,22 +21,22 @@ class Game {
     })
   }
 
-  addNewBulbs() {
-    this.bulbs.push(new Bulb())
-    this.bulbs.push(new Bulb())
-  }
-  
-  
 
   start() {
+
     this.intervalId = setInterval(() => {
       this.incCounter();
       this.tick++
-  
+      this.tock++
 
       if (this.tick > Math.random() * 3 + 5) {
         this.turnOnRandomBulb()
         this.tick = 0
+      }
+
+      if (this.tock >= 10) {
+        this.createBulbs() 
+        this.tock = 0
       }
 
     }, 500);
@@ -49,11 +49,12 @@ class Game {
     this.bulbs.forEach((bulb) => {
       if (bulb.on) {
         bulb.turnOff()
+        //document.querySelector("game-panel").classList.add("visibility")
       }
     })
-
-    //document.querySelector("game-panel").classList.add("visibility")
-
+    document.querySelector(".game-panel").classList.add("visibility")
+    document.querySelector(".bill-panel").classList.add("visibility")
+    
   }
 
 
@@ -82,7 +83,7 @@ class Game {
   checkCounter() {
     if (this.total >= 150) {
       this.counter.classList.add("yellow-background")
-    } 
+      }
     if (this.total >= 180) {
       this.counter.classList.add("red-background")
     }
