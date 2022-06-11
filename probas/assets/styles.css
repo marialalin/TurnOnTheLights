@@ -8,8 +8,8 @@
 
 
 #background-image {
-    height: 1050px;
-    background: url(/assets/images/salon.jpg) no-repeat;
+    height: 940px;
+    background: url(/assets/images/game-background.png) no-repeat;
     background-size: cover;
     }
 
@@ -17,7 +17,7 @@ header {
     font-family:'Codystar', cursive;
     color:azure;
     text-align: center;
-    font-size: 70px;
+    font-size: 65px;
     padding-top: 40px;
     -webkit-animation: glow 0.1s ease-in-out infinite alternate;
     -moz-animation: glow 1s ease-in-out infinite alternate;
@@ -37,9 +37,10 @@ header {
 .panels {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content:space-around;
-    height: 1000px;
+    height: 750px;
+    margin-top: 50px;
     
 }
 
@@ -52,7 +53,10 @@ header {
     position: relative;
     border: 15px solid rgb(234, 54, 54);
     
-    
+}
+
+.game-panel.visibility {
+    visibility: hidden;
 }
 
 .bill-panel {
@@ -65,40 +69,41 @@ header {
 }
 
 .counter-panel {
-    background-color: whitesmoke ;
+    position: absolute;
+    background-color: rgba(154, 151, 189) ;
     width: 230px;
-    height: 75px;
-    border-radius: 2%;
-    border: 15px solid rgb(234, 54, 54);
+    height: 65px;
+    top: 480px;
+    left:30px;
+    border: 15px solid rgb(53, 49, 84);
     border-radius: 10%;
     font-family: 'Orbitron', sans-serif;
     text-align: center;
     font-size: 40px;
     font-weight: 600;
     letter-spacing: 5px;
-    position: absolute;
-    top: 480px;
-    left:30px;
+    
 
 }
+
+.yellow-background {
+    background-color: rgba(250, 206, 12, 0.7);
+    height: 65px;
+    
+}
+            
+
+.red-background {
+    background-color:rgb(234, 54, 54, 0.9);
+    height: 65px;
+}
+
 
 .kw {
     position:absolute;
     top: 19px;
     left: -90px;  
 }
-
-
-
-
-
-.switch-container .rotate {
-    transform: scaleX(-1);
-    transform: scaleY(-1); 
-}
-
-
-/* PARA QUE APAREZAN E DESAPAREZAN AS CLASES*/
 
 
 .bulb {
@@ -112,83 +117,11 @@ header {
     
 }
 
-/*añadir off y on a bulb container para que cambie de clase*/
-
-.bulb-container.on .bulb.bulb-on {
-    display: block;
-}
-
-.bulb-container.on .bulb.bulb-off {
-    display: none;
-}
-
-.bulb-container.off .bulb.bulb-off {
-    display: block;
-}
-
-.bulb-container.off .bulb.bulb-on {
-    display: none;
-}
-
-
-
-/*.switch-container.on .switch {
-    transform: scaleX(-1);
-    transform: scaleY(-1);
-}*/
-
-.switch-container .rotate {
+.rotate {
     transform: scaleX(-1);
     transform: scaleY(-1);
 }
 
-.bulb-container.index-1 .bulb {
-    position: absolute;
-    top: 120px;
-    left: 300px;
-}
-
-.bulb-container.index-2 .bulb {
-   position: absolute;
-    top: 120px;
-    left: 550px;
-}
-
-.bulb-container.index-3 .bulb {
-    position: absolute;
-     top: 120px;
-     left: 550px;
- }
-
- .bulb-container.index-4 .bulb {
-    position: absolute;
-     top: 120px;
-     left: 800px;
- }
-
- .switch-container.index-2 .switch {
-    position: absolute;
-    top: 420px;
-    left: 360px;
- }
-
- .switch-container.index-3 .switch {
-    position: absolute;
-    top: 420px;
-    left: 360px;
- }
-
- .switch-container.index-4 .switch {
-    position: absolute;
-    top: 420px;
-    left: 610px;
- }
-
- .switch-container.index-1 .switch {
-    position: absolute;
-    top: 420px;
-    left: 610px;
- }
 
  #counter::after {
     content:"€"

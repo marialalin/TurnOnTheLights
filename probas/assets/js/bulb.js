@@ -1,62 +1,53 @@
-class Bulb {
-  constructor(bulbElement, switchElement) {
-    this.bulbElement = bulbElement;
-    this.switchElement = switchElement
-    this.on = false;
+const BULB_IMAGE_ON = "/assets/images/bulb1-yellow.png"
+const BULB_IMAGE_OFF = "/assets/images/bulb1-grey.png"
+const SWITCH_IMAGE = "/assets/images/switcher.png"
 
+class Bulb {
+  constructor() {
+    this.bulbElement = this.createBulbHtml()
+    this.switchElement = this.createSwitchHtml()
+    this.on = false
+    this.setListener()
   }
    
-  
+  createBulbHtml() {
+    const bulb = document.createElement("img")
+    bulb.classList.add("bulb") 
+    bulb.src = BULB_IMAGE_OFF
+    return bulb
 
-  turnOn(index) {
+  }
+  
+  createSwitchHtml() {
+    const $switch = document.createElement("img")
+    $switch.classList.add("switch") 
+    $switch.src = SWITCH_IMAGE
+    return $switch
+  }
+
+  turnOn() {
     this.on = true;
-    const bulbContainer = document.querySelector(`.bulb-container.${index}`)
-    const switchContainer = document.querySelector(`.switch-container.${index}`)
-    bulbContainer.classList.remove("off")
-    bulbContainer.classList.add("on")
-    switchContainer.classList.remove("off")
-    switchContainer.classList.add("on")
-    switchContainer.querySelector("img").classList.remove("rotate")
-    const clickOff = document.getElementById("clickOff")
-    clickOff.play()
+    this.bulbElement.src = BULB_IMAGE_ON
+    this.switchElement.classList.add("rotate")
+  }
+
+  turnOff() {
+    this.on = false;
+    this.bulbElement.src = BULB_IMAGE_OFF
+    this.switchElement.classList.remove("rotate")
     
   }
 
-  turnOff(index) {
-    this.on = false;
-    const bulbContainer = document.querySelector(`.bulb-container.${index}`)
-    const switchContainer = document.querySelector(`.switch-container.${index}`)
-    bulbContainer.classList.add("off")
-    bulbContainer.classList.remove("on")
-    switchContainer.classList.remove("on")
-    switchContainer.classList.add("off")
-    switchContainer.querySelector("img").classList.add("rotate")
-    const clickOn = document.getElementById("switch-click")
-    clickOn.play()
-
-  }
-
   setListener() {
-    document.querySelectorAll('.switch-container').forEach((s) => {
-      s.addEventListener('click', (event) => {
-        const arrayClass = event.currentTarget.className.split(' ');
-        this.toggle(arrayClass[1])
-      })
+    this.switchElement.addEventListener("click", () => {
+      if (this.on) {
+        this.turnOff()
+      } else {
+        this.turnOn()
+      }
     })
-   
+
   }
-
-
-  toggle(index) {
-    if (this.on) {
-      this.turnOff(index)
-    } else {
-      this.turnOn(index);
-    }
-  }
-
-  
 
 }
-
 

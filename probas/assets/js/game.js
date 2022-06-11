@@ -1,84 +1,95 @@
 class Game {
-  constructor(bulbElements, switchElements, counter, level = 2) {
-    
-    this.bulbElements = bulbElements
-    this.switchElements = switchElements
-    this.counter = counter
-    this.level = level
+  constructor(numBulbs) {
+    this.bulbsContainer = document.querySelector(".game-panel") 
+    this.counter = document.getElementById("counter")
     this.intervalId = null
     this.tick = 0
+    this.tock = 0
     this.total = 0
-    this.maxTotal = 10
+    this.maxTotal = 20
 
-    this.arrayBulbs = []
-    this.arrayBulbs.push(new Bulb(bulbElements, switchElements))
-    this.arrayBulbs.push(new Bulb(bulbElements, switchElements))
-    
-   
+    this.bulbs = [new Bulb(), new Bulb()]
+    this.createBulbs() 
     
   }
 
-  start() {
+  createBulbs() {
+    this.bulbsContainer.innerHTML = ""
+    this.bulbs.forEach((bulb) =>{
+      this.bulbsContainer.append(bulb.bulbElement)
+      this.bulbsContainer.append(bulb.switchElement)
+    })
+  }
 
+  addNewBulbs() {
+    this.bulbs.push(new Bulb())
+    this.bulbs.push(new Bulb())
+  }
+  
+  
+
+  start() {
     this.intervalId = setInterval(() => {
       this.incCounter();
+      this.tick++
+  
 
-      this.tick++;
-      if (this.tick > Math.random() * 10 + 8) {
-        this.turnOnRandomBulb();
+      if (this.tick > Math.random() * 3 + 5) {
+        this.turnOnRandomBulb()
+        this.tick = 0
       }
 
-      if (this.tick > 30000) {
-        this.tick = 30;
-        this.upLevel(); 
-      }
     }, 500);
   }
 
-  /*gameOver() {
-    console.log("gameOverrr")
+  gameOver() {
     clearInterval(this.intervalId)
     this.intervalId = null
 
     this.bulbs.forEach((bulb) => {
       if (bulb.on) {
-        this.turnOff()
+        bulb.turnOff()
       }
     })
-  }*/
 
+    //document.querySelector("game-panel").classList.add("visibility")
 
-
-  upLevel() {
-    this.arrayBulbs.push(new Bulb(this.bulbElements, this.switchElements))
-    this.arrayBulbs.push(new Bulb(this.bulbElements, this.switchElements))
-
-            
   }
 
-  /*turnOnRandomBulb() {
-    const indexBulb = Math.floor(Math.random() * this.bulbs.length)
-    this.bulbs[indexBulb].turnOn()
+
+
+  turnOnRandomBulb() {
+    const randomBulb = Math.floor(Math.random() * this.bulbs.length)
+    this.bulbs[randomBulb].turnOn()
     
   }
 
   incCounter() {
+    
     this.bulbs.forEach((bulb) => {
       if (bulb.on) {
+        
         this.total += 1
-  
+        this.checkCounter()
+        
         this.counter.innerText = `${this.total}`
       }
       
     })
   }
 
+
   checkCounter() {
+    if (this.total >= 150) {
+      this.counter.classList.add("yellow-background")
+    } 
+    if (this.total >= 180) {
+      this.counter.classList.add("red-background")
+    }
     if (this.total >= this.maxTotal) {
        this.gameOver()
-       console.log("eh")
      }
-  }*/
+  }
 }
 
 
