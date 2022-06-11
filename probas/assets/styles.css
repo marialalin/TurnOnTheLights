@@ -58,14 +58,13 @@ header {
     
 }
 
-.game-start {
+#game-start {
     position: absolute;
     width: 1200px;
     height: 700px;
     left: 350px;
     margin-top: 50px;
     background-color: #e8e1e5;
-    background-size: cover;
 }
 
 .game-panel {

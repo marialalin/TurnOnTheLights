@@ -2,10 +2,11 @@ const game = new Game();
    
 
 
-game.start()
 const gameStart = document.getElementById("game-start")
 gameStart.addEventListener("click", () => {
-    if(game.intervalId !== null) {
+    document.getElementById("game-start").classList.add("hidden")
+    document.getElementById("game-canvas").classList.remove("hidden")
+    if(game.intervalId === null) {
         game.start()
     }
 })
