@@ -6,7 +6,9 @@ class Game {
     this.tick = 0;
     this.tock = 0;
     this.total = 0;
-    this.maxTotal = 45;
+    this.maxTotal = 200;
+    this.yellowTop = 120;
+    this.redTop = 170;
 
     this.bulbsIds = [1, 2, 3, 4, 5];
     this.shuffledBulbsId = this.bulbsIds.sort(() => Math.random() - 0.5);
@@ -104,12 +106,12 @@ class Game {
   checkCounter() {
     if (this.total >= this.maxTotal) {
       this.gameOver();
-    } else if (this.total >= 180) {
+    } else if (this.total >= this.redTop) {
       this.counter.classList.add("red-background")
       const music3 = document.getElementById("music3")
       music3.play()
       music3.loop = true;
-    } else if (this.total >= 130) {
+    } else if (this.total >= this.yellowTop) {
       this.counter.classList.add("yellow-background");
       const music2 = document.getElementById("music2")
       music2.play()

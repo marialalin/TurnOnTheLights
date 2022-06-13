@@ -33,6 +33,7 @@ class Bulb {
     this.on = true;
     this.bulbElement.src = BULB_IMAGE_ON
     this.switchElement.classList.add("rotate")
+    
   }
 
   turnOff() {
