@@ -6,7 +6,7 @@ class Game {
     this.tick = 0;
     this.tock = 0;
     this.total = 0;
-    this.maxTotal = 60;
+    this.maxTotal = 45;
 
     this.bulbsIds = [1, 2, 3, 4, 5];
     this.shuffledBulbsId = this.bulbsIds.sort(() => Math.random() - 0.5);
@@ -44,6 +44,9 @@ class Game {
         this.incCounter();
         this.tick++;
         this.tock++;
+        const music1 = document.getElementById("music1")
+        music1.play()
+        music1.loop = true;
 
         if (this.tick > Math.random() * 1 + 3) {
           this.turnOnRandomBulb();
@@ -61,6 +64,7 @@ class Game {
   gameOver() {
     clearInterval(this.intervalId);
     this.intervalId = null;
+    
 
     this.bulbs.forEach((bulb) => {
       if (bulb.on) {
@@ -68,12 +72,17 @@ class Game {
       }
     });
 
-    document.getElementById("breaking-bulbs");
+  
+    const breakingBulbs = document.getElementById("breaking-bulbs")
+    breakingBulbs.play()
+
     setTimeout(() => {
       document.querySelector(".game-panel").classList.add("hidden");
       document.querySelector(".bill-panel").classList.add("hidden");
       document.getElementById("game-over").classList.add("game-over");
-    }, 1000);
+    }, 1200);
+
+  
   }
 
   turnOnRandomBulb() {
@@ -96,9 +105,15 @@ class Game {
     if (this.total >= this.maxTotal) {
       this.gameOver();
     } else if (this.total >= 180) {
-      this.counter.classList.add("red-background");
-    } else if (this.total >= 150) {
+      this.counter.classList.add("red-background")
+      const music3 = document.getElementById("music3")
+      music3.play()
+      music3.loop = true;
+    } else if (this.total >= 130) {
       this.counter.classList.add("yellow-background");
+      const music2 = document.getElementById("music2")
+      music2.play()
+      music2.loop = true;
     }
   }
 }
