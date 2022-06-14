@@ -87,7 +87,12 @@ class Game {
       music2.pause()
       const music3 = document.getElementById("music3")
       music3.pause()
+      const music1 = document.getElementById("music1")
+      music1.pause() 
     }, 1200);
+    
+    const gameover = document.getElementById("musicgameover")
+      gameover.play()
 
   
   }
