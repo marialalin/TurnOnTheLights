@@ -6,6 +6,9 @@
 
 }
 
+body {
+    background-color: rgba(64, 84, 173); 
+}
 
 #background-image {
     height: 940px;
@@ -40,13 +43,15 @@ header {
     position: absolute;
     width: 1850px;
     height: 940px;
-    background: url(/assets/images/game-over-fullscreen.png) no-repeat;
+    background: url(/assets/images/game-over-fullscreen-try.png) no-repeat;
     background-size: cover;
     top: 0px;
     left: 20px;
     
-    
-    
+}
+
+.oculto {
+    display: none;
 }
 
 #game-start {
@@ -60,6 +65,30 @@ header {
     box-shadow: 10px 10px 5px rgba(19, 57, 114, 0.549);
     
 }
+
+.btn-start {
+    position:relative;
+    top: 360px;
+    left: 325px;
+}
+
+.btn-start:hover {
+    cursor: pointer;
+    border: 3px solid #FB1FFD;
+   
+}
+
+.btn-try-again {
+    position: relative;
+    top: 660px;
+    left: 870px;
+}
+
+.btn-try-again:hover {
+    cursor: pointer;
+    border: 3px solid #FB1FFD;
+}
+
 
 .game-panel {
     background-color: rgba(116, 172, 225, 0.7); 
@@ -140,8 +169,8 @@ header {
 .rotate {
     transform: scaleX(-1);
     transform: scaleY(-1);
+   
 }
-
 
  #counter::after {
     content:"€"
@@ -185,7 +214,8 @@ header {
 
  .switch-3 {
     bottom: 150px;
-    left: 485px; 
+    left: 485px;
+     
  }
 
  .switch-4 {
@@ -195,6 +225,7 @@ header {
 
  .switch-5 {
     bottom: 150px;
-    left: 885px; 
+    left: 885px;
+
  }
 

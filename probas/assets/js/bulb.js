@@ -40,7 +40,8 @@ class Bulb {
     this.on = false;
     this.bulbElement.src = BULB_IMAGE_OFF
     this.switchElement.classList.remove("rotate")
-    
+    const click = document.getElementById("switch-click")
+    click.play() 
   }
 
   setListener() {

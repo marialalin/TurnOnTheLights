@@ -7,8 +7,8 @@ class Game {
     this.tock = 0;
     this.total = 0;
     this.maxTotal = 200;
-    this.yellowTop = 120;
-    this.redTop = 170;
+    this.yellowTop = 100;
+    this.redTop = 160;
 
     this.bulbsIds = [1, 2, 3, 4, 5];
     this.shuffledBulbsId = this.bulbsIds.sort(() => Math.random() - 0.5);
@@ -48,18 +48,19 @@ class Game {
         this.tock++;
         const music1 = document.getElementById("music1")
         music1.play()
+        music1.volume = 0.7
         music1.loop = true;
 
-        if (this.tick > Math.random() * 1 + 3) {
+        if (this.tick > Math.random() * 3 + 1) {
           this.turnOnRandomBulb();
           this.tick = 0;
         }
 
-        if (this.tock >= 30) {
+        if (this.tock >= 20) {
           this.addNewBulb();
           this.tock = 0;
         }
-      }, 300);
+      }, 700);
     }
   }
 
@@ -67,21 +68,25 @@ class Game {
     clearInterval(this.intervalId);
     this.intervalId = null;
     
-
+    const breakingBulbs = document.getElementById("breaking-bulbs")
+    breakingBulbs.play()
+    
     this.bulbs.forEach((bulb) => {
       if (bulb.on) {
         bulb.turnOff();
-      }
+      } 
     });
 
-  
-    const breakingBulbs = document.getElementById("breaking-bulbs")
-    breakingBulbs.play()
 
     setTimeout(() => {
-      document.querySelector(".game-panel").classList.add("hidden");
-      document.querySelector(".bill-panel").classList.add("hidden");
-      document.getElementById("game-over").classList.add("game-over");
+      document.querySelector(".game-panel").classList.add("hidden")
+      document.querySelector(".bill-panel").classList.add("hidden")
+      document.getElementById("game-over").classList.add("game-over")
+      document.querySelector(".btn-try-again").style.display = "block"
+      const music2 = document.getElementById("music2")
+      music2.pause()
+      const music3 = document.getElementById("music3")
+      music3.pause()
     }, 1200);
 
   
@@ -115,6 +120,7 @@ class Game {
       this.counter.classList.add("yellow-background");
       const music2 = document.getElementById("music2")
       music2.play()
+      music2.volume = 0.3
       music2.loop = true;
     }
   }

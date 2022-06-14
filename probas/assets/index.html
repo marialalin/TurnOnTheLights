@@ -14,13 +14,10 @@
     </style>
     <audio id="switch-click" src="/assets/sounds/Light-Switch.mp3"></audio>
     <audio id="clickOff" src="/assets/sounds/clickOff.mp3"></audio>
-    <audio
-      id="breaking-bulbs"
-      src="/assets/sounds/light-bulb-breaking.mp3"
-    ></audio>
-    <audio id="music1" src="/assets/sounds/bulbs1.wav"></audio>
-    <audio id="music2" src="/assets/sounds/bulbs2.wav"></audio>
-    <audio id="music3" src="/assets/sounds/bulbs3.wav"></audio>
+    <audio id="breaking-bulbs" src="/assets/sounds/breaking-bulbs.mp3"></audio>
+    <audio id="music1" src="/assets/sounds/sound-bulb1.mp3"></audio>
+    <audio id="music2" src="/assets/sounds/sound-bulb2-reg.mp3"></audio>
+    <audio id="music3" src="/assets/sounds/sound-bulb3.mp3"></audio>
   </head>
 
   <body>
@@ -29,8 +26,13 @@
         <p>TuRN oFF tHE LiGHtS!!!</p>
       </header>
 
-      <div id="game-start"></div>
-      <div id="game-over"></div>
+      <div id="game-start">
+        <img src="/assets/images/btn-prob2.png" class="btn-start" alt="play">
+      </div>
+
+      <div id="game-over">
+        <img src="/assets/images/btn-try-again-final.png" class="btn-try-again oculto" alt="try-again">
+      </div>
 
       <div class="panels hidden" id="game-canvas">
         <div class="game-panel"></div>

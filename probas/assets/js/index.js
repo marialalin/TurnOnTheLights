@@ -2,7 +2,7 @@ const game = new Game();
    
 
 
-const gameStart = document.getElementById("game-start")
+const gameStart = document.querySelector(".btn-start")
 gameStart.addEventListener("click", () => {
     document.getElementById("game-start").classList.add("hidden")
     document.getElementById("game-canvas").classList.remove("hidden")
@@ -12,7 +12,7 @@ gameStart.addEventListener("click", () => {
 })
 
 
-const restart = document.getElementById("game-over")
+const restart = document.querySelector(".btn-try-again")
 restart.addEventListener("click", () => {
   if (game.intervalId === null) {
       location.reload()
