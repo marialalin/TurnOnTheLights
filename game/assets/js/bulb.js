@@ -30,10 +30,11 @@ class Bulb {
   }
 
   turnOn() {
-    this.on = true;
+    this.on = true
     this.bulbElement.src = BULB_IMAGE_ON
     this.switchElement.classList.add("rotate")
-    
+    //const clickOn = document.getElementById("clickOn")
+    //git clickOn.play()
   }
 
   turnOff() {
